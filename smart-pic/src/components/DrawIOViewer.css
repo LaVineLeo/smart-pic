@@ -1,0 +1,181 @@
+.drawio-viewer {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(20px);
+  margin-top: 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.drawio-viewer:hover {
+  border-color: var(--tech-blue);
+  box-shadow: var(--shadow-lg), var(--glow-blue);
+}
+
+.viewer-header {
+  background: var(--gradient-primary);
+  color: var(--text-primary);
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.viewer-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+  animation: shimmer 3s infinite;
+}
+
+.viewer-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.viewer-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.viewer-status {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  padding: 0.25rem 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.viewer-container {
+  position: relative;
+  height: 600px;
+  background: var(--secondary-bg);
+  border-top: 1px solid var(--border-color);
+}
+
+.viewer-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: var(--secondary-bg);
+  transition: opacity 0.3s ease;
+}
+
+.viewer-iframe.hidden {
+  opacity: 0;
+}
+
+.viewer-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: var(--text-secondary);
+  z-index: 10;
+}
+
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 3px solid var(--border-color);
+  border-top: 3px solid var(--tech-blue);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.viewer-loading p {
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin: 0;
+}
+
+.viewer-error {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: var(--error);
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--error);
+  box-shadow: var(--shadow-md);
+  max-width: 400px;
+  width: 90%;
+}
+
+.viewer-error p {
+  margin: 0.5rem 0;
+  line-height: 1.5;
+}
+
+.viewer-error p:first-child {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.viewer-footer {
+  background: var(--secondary-bg);
+  border-top: 1px solid var(--border-color);
+  padding: 0.75rem 1.5rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.viewer-footer p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .viewer-header {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .viewer-container {
+    height: 400px;
+  }
+  
+  .viewer-loading, .viewer-error {
+    padding: 1.5rem;
+  }
+  
+  .viewer-footer {
+    padding: 1rem;
+  }
+  
+  .viewer-footer p {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+} 

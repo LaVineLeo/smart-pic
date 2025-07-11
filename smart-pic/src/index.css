@@ -1,0 +1,151 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* 科技风格配色系统 */
+  --primary-bg: #0a0a0f;
+  --secondary-bg: #111118;
+  --card-bg: #1a1a23;
+  --hover-bg: #242433;
+  --border-color: #2a2a3a;
+  --border-hover: #3a3a4a;
+  
+  /* 科技蓝色系 */
+  --tech-blue: #00d4ff;
+  --tech-blue-dark: #0099cc;
+  --tech-blue-light: #33ddff;
+  --tech-blue-glow: rgba(0, 212, 255, 0.3);
+  
+  /* 霓虹绿色系 */
+  --neon-green: #00ff88;
+  --neon-green-dark: #00cc66;
+  --neon-green-glow: rgba(0, 255, 136, 0.3);
+  
+  /* 文字颜色 */
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --text-muted: #666666;
+  
+  /* 状态颜色 */
+  --success: #00ff88;
+  --warning: #ffaa00;
+  --error: #ff4444;
+  
+  /* 阴影和光效 */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 16px 64px rgba(0, 0, 0, 0.5);
+  --glow-blue: 0 0 20px var(--tech-blue-glow);
+  --glow-green: 0 0 20px var(--neon-green-glow);
+  
+  /* 渐变 */
+  --gradient-primary: linear-gradient(135deg, var(--tech-blue) 0%, var(--neon-green) 100%);
+  --gradient-bg: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+  --gradient-card: linear-gradient(135deg, var(--card-bg) 0%, var(--hover-bg) 100%);
+}
+
+body {
+  font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  background: var(--gradient-bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* 导入Inter字体 */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* 全局滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondary-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-hover);
+}
+
+/* 选择文本样式 */
+::selection {
+  background: var(--tech-blue-glow);
+  color: var(--text-primary);
+}
+
+/* 焦点样式 */
+*:focus {
+  outline: 2px solid var(--tech-blue);
+  outline-offset: 2px;
+}
+
+/* 代码字体 */
+code, pre {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+}
+
+/* 动画 */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: var(--glow-blue); }
+  50% { box-shadow: 0 0 30px var(--tech-blue-glow); }
+}
+
+@keyframes float-up {
+  0% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes slideIn {
+  0% { transform: translateX(100%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* 通用工具类 */
+.text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glow-blue {
+  box-shadow: var(--glow-blue);
+}
+
+.glow-green {
+  box-shadow: var(--glow-green);
+}
+
+.animate-float {
+  animation: float-up 0.6s ease-out;
+}
+
+.animate-glow {
+  animation: glow-pulse 2s infinite;
+} 

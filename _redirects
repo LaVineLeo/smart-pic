@@ -1,0 +1,7 @@
+# Netlify redirects for Smart-Pic
+
+# API redirects to serverless functions
+/api/* /.netlify/functions/:splat 200
+
+# SPA fallback - redirect all other requests to index.html
+/* /index.html 200
